@@ -1,0 +1,27 @@
+{
+  "notice": "全部为虚构资料，用于验证来源、否定、时间和证据边界。",
+  "documents": [
+    {"key":"preferences","source":"obsidian-demo","content":"2026-10-01，小林通常希望得到简短回答。2026-10-03，小林更新偏好：复杂技术问题应详细解释，简单状态询问仍简短。以10月3日的偏好为准。"},
+    {"key":"machines","source":"hermes-demo","content":"2026-10-02 SSH排查：[observed] 已检查机器A；目标服务运行在机器B，应使用维护用户ops。机器B公钥认证失败。[unknown] 尚未检查B的authorized_keys，不能断言授权文件缺少公钥，也不能把A的检查结果当作B的证据。"},
+    {"key":"task-receipt","source":"codex-demo","content":"[observed] 发布脚本返回exit code 0。[unknown] 尚未读取远端进程或发布回执。因此无法确认服务已经部署成功，也无法确认目标进程停止。助手说“已完成”仅为assistant-claimed。"},
+    {"key":"shared-vault","source":"obsidian-demo","content":"实验机C通过NFS挂载实验机D的同一Obsidian资料库，两处路径代表同一份资料。不要重复导入。目录可见只说明挂载存在；是否实际读取某篇笔记需另有读取证据。"},
+    {"key":"verified-method","source":"hermes-demo","content":"虚构实验2026-10-02：[verified] PostgreSQL死锁由两个事务按相反顺序更新相同行复现，记录SQLSTATE 40P01。调整为一致的更新顺序后重复同一实验10次，未再复现死锁。这是本实验结果，不能保证所有生产场景没有死锁。"},
+    {"key":"chinese-negation","source":"obsidian-demo","content":"小林从2026-09-15起不喝咖啡，日常喝无糖茶。小林没有报告茶叶过敏，不能据此断定不存在其他过敏。"},
+    {"key":"sqlite-backup","source":"codex-demo","content":"正在写入的Hermes SQLite数据库使用WAL。实验已验证使用SQLite backup API创建一致性快照；单独复制state.db可能丢失尚在WAL中的数据，因此应使用一致性备份。"},
+    {"key":"budget","source":"obsidian-demo","content":"小林给个人知识库首轮模型测试设置200元人民币上限，允许模型API但要求避免浪费。人民币200元不能直接当成200美元额度。输出用量已包含的reasoning tokens不能重复计费。"}
+  ],
+  "questions": [
+    {"query":"小林遇到复杂技术问题时希望怎样回答？","expected_key":"preferences"},
+    {"query":"目标服务应该排查哪台机器，使用哪个用户？","expected_key":"machines"},
+    {"query":"可以断言机器B缺少授权公钥吗？","expected_key":"machines"},
+    {"query":"exit code 0证明远端服务已部署或进程停止了吗？","expected_key":"task-receipt"},
+    {"query":"NFS路径可见能证明笔记已经被读取吗？","expected_key":"shared-vault"},
+    {"query":"怎样复现和修正这次PostgreSQL死锁，验证范围是什么？","expected_key":"verified-method"},
+    {"query":"小林现在喝咖啡吗，通常喝什么？","expected_key":"chinese-negation"},
+    {"query":"如何可靠备份正在写入WAL的Hermes数据库？","expected_key":"sqlite-backup"},
+    {"query":"测试费用额度是多少人民币，推理token如何计数？","expected_key":"budget"},
+    {"query":"来自Codex的发布结果确认了吗？","expected_key":"task-receipt"},
+    {"query":"来自Hermes的死锁实验采用什么更新顺序？","expected_key":"verified-method"},
+    {"query":"小林的护照号码是多少？","expected_key":null,"expected_behavior":"资料没有护照信息。检索相关项不能用于捏造答案。"}
+  ]
+}

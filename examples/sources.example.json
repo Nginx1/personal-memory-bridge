@@ -1,0 +1,25 @@
+{
+  "sources": [
+    {
+      "kind": "markdown",
+      "name": "my-vault",
+      "path": "/PRIVATE/PATH/vault",
+      "include": ["notes/**"],
+      "exclude": [".git/**", ".obsidian/**", ".trash/**", "_memory/**"],
+      "scope": "personal"
+    },
+    {
+      "kind": "codex",
+      "name": "my-codex",
+      "roots": ["/PRIVATE/PATH/selected-codex-sessions"],
+      "scope": "personal"
+    },
+    {
+      "kind": "hermes",
+      "name": "my-hermes",
+      "path": "/PRIVATE/PATH/state.db",
+      "sessions": ["SELECTED_SESSION_ID"],
+      "scope": "personal"
+    }
+  ]
+}

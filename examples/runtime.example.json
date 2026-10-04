@@ -1,0 +1,34 @@
+{
+  "database_url": "postgresql://memory:REPLACE_DATABASE_PASSWORD@127.0.0.1:5432/memory",
+  "ledger": "/srv/personal-memory/costs.db",
+  "ceiling_cny": 200,
+  "max_calls": 50,
+  "port": 8889,
+  "environment": {
+    "HF_HOME": "/var/lib/personal-memory/hf",
+    "HF_HUB_OFFLINE": "1",
+    "TRANSFORMERS_OFFLINE": "1",
+    "NO_PROXY": "127.0.0.1,localhost",
+    "HINDSIGHT_API_EMBEDDINGS_PROVIDER": "onnx",
+    "HINDSIGHT_API_EMBEDDINGS_ONNX_MODEL_ID": "intfloat/multilingual-e5-small",
+    "HINDSIGHT_API_RERANKER_PROVIDER": "rrf",
+    "HINDSIGHT_API_ENABLE_RERANKING": "false",
+    "HINDSIGHT_API_ENABLE_AUTO_CONSOLIDATION": "false",
+    "HINDSIGHT_API_ENABLE_TEMPORAL_RETRIEVAL": "false",
+    "HINDSIGHT_API_DB_POOL_MIN_SIZE": "2",
+    "HINDSIGHT_API_DB_POOL_MAX_SIZE": "8",
+    "HINDSIGHT_API_READ_DB_POOL_MIN_SIZE": "2",
+    "HINDSIGHT_API_READ_DB_POOL_MAX_SIZE": "8",
+    "HINDSIGHT_API_WORKER_MAX_SLOTS": "3",
+    "HINDSIGHT_API_WORKER_ID": "personal-memory-primary",
+    "HINDSIGHT_API_RETAIN_MAX_COMPLETION_TOKENS": "8192"
+  },
+  "llm": {
+    "base_url": "https://model-provider.example/v1",
+    "key_file": "/etc/personal-memory/model-key",
+    "model": "YOUR_PINNED_TEXT_MODEL",
+    "tariff": ["REPLACE_INPUT_PRICE", "REPLACE_OUTPUT_PRICE", "REPLACE_CACHE_PRICE"],
+    "max_output": 8192,
+    "disable_thinking": false
+  }
+}
