@@ -101,7 +101,7 @@ mcp_servers:
       prompts: false
 ```
 
-Hermes 实测能把工具注册为 `mcp__personal_memory__memory_search` 和 `mcp__personal_memory__memory_source`。载入配置后验证一次读取；不要重复启用原生 Hindsight 自动写入，绕过本项目纠错记录或重复提炼同一内容。
+Hermes 实测能把工具注册为 `mcp__personal_memory__memory_search` 和 `mcp__personal_memory__memory_source`。如果已有 `toolsets: [hermes-cli]` 等显式名单，保留原名单并加入 `mcp-personal_memory`；仅注册 MCP 不代表它已经进入模型的工具集合。部署验证曾发现此差异，补充后在实际工具构建器中确认两工具可见。载入配置后验证一次读取；不要重复启用原生 Hindsight 自动写入，绕过本项目纠错记录或重复提炼同一内容。
 
 ## 备份与恢复
 
