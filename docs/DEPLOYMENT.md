@@ -84,7 +84,7 @@ startup_timeout_sec = 30
 tool_timeout_sec = 60
 ```
 
-配置方式依据 [OpenAI 官方 MCP 文档](https://learn.chatgpt.com/docs/extend/mcp?surface=cli)。新配置需要被客户端重新加载；现有对话是否立即识别工具应实际检查。Windows 验证中 FastMCP Python 客户端返回 `Connection closed`，具体原因尚未定位；用普通匿名管道完成了实际 MCP JSON-RPC 验证。此发现不能代替对每个客户端版本的测试。
+配置方式依据 [OpenAI 官方 MCP 文档](https://learn.chatgpt.com/docs/extend/mcp?surface=cli)。新配置需要被客户端重新加载；现有对话是否立即识别工具应实际检查。Windows 已通过普通匿名管道完成 MCP JSON-RPC 查询与回源；另用本机安装的 Codex 二进制启动独立 stdio app-server，通过 `mcpServerStatus/list` 连接并发现两个工具，没有创建聊天或启动模型请求。该检查验证配置和连接，真实聊天模型的主动选择仍待观察。另一个 FastMCP Python 异步客户端返回 `Connection closed`，其原因尚未定位，不能据此推断原生 Codex 连接失败。
 
 Hermes 配置：
 
